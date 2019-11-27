@@ -27,3 +27,23 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'admin'])->name(
     Route::resource('/users', 'UserController')->except(['create', 'show', 'store']);
     Route::resource('/articles', 'ArticleController')->except(['create', 'show']);
 });
+
+
+Route::get('/index', function(){
+    return view('pages.index');
+});
+Route::get('/contact', function(){
+    return view('pages.contact');
+});
+Route::get('/about', function(){
+    return view('pages.about');
+});
+Route::get('/fashion', function(){
+    return view('pages.fashion');
+});
+Route::get('/travel', function(){
+    return view('pages.travel');
+});
+Route::get('/single', function(){
+    return view('pages.single');
+});
