@@ -11,7 +11,7 @@ class Article extends Model
 
     protected $fillable = [
 
-        'iamge', 'title', 'body'
+        'title', 'body', 'image',
 
     ];
 
@@ -21,8 +21,8 @@ class Article extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function categories(){
+    public function tags(){
 
-        return $this->belongsToMany('app\Models\Category');
+        return $this->belongsToMany('App\Models\Tag');
     }
 }

@@ -74,7 +74,7 @@ class UserController extends Controller
            $file = $request->file('image');
            $extension = $file->getClientOriginalExtension(); // getting image extension
            $filename = time() . '.' . $extension;
-           $file->move('uploads/profilepics/', $filename);
+           $file->move(public_path('uploads/profilepics/'), $filename);
            $user->image = $filename;
 
        }

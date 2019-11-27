@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Dashboard | Blog
+@endsection
+
 @section('content')
 
     <!-- Content Header (Page header) -->

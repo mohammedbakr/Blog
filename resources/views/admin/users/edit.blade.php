@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Edit-Register | Blog
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
