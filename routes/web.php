@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+// AdminLTE Dashboard
 Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware(['auth', 'admin'])->name('dashboard');
@@ -28,22 +24,14 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'admin'])->name(
     Route::resource('/articles', 'ArticleController')->except(['create', 'show']);
 });
 
+// User Pages
+Route::get('/', 'HomeController@index')->name('index');
+Route::resource('/tags', 'Pages\TagsController')->only(['show']);
 
-Route::get('/index', function(){
-    return view('pages.index');
-});
+
 Route::get('/contact', function(){
     return view('pages.contact');
-});
+})->name('contact');
 Route::get('/about', function(){
     return view('pages.about');
-});
-Route::get('/fashion', function(){
-    return view('pages.fashion');
-});
-Route::get('/travel', function(){
-    return view('pages.travel');
-});
-Route::get('/single', function(){
-    return view('pages.single');
-});
+})->name('about');
