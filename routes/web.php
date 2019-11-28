@@ -25,8 +25,14 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'admin'])->name(
 });
 
 // User Pages
-Route::get('/', 'HomeController@index')->name('index');
-Route::resource('/tags', 'Pages\TagsController')->only(['show']);
+// Route::get('/', 'HomeController@index')->name('index');
+// Route::resource('/', 'Pages\ArticlesController')->only(['index', 'show']);
+// Route::resource('/tags', 'Pages\TagsController')->only(['show']);
+
+Route::namespace('Pages')->name('pages.')->group(function(){
+    Route::resource('/index', 'ArticlesController')->except(['create', 'store', 'edit', 'update', 'destroy']);
+    Route::resource('/tags', 'TagsController')->only(['show']);
+});
 
 
 Route::get('/contact', function(){

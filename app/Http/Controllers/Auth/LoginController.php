@@ -26,7 +26,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/home';
 
     public function redirectTo(){
 
@@ -36,7 +35,7 @@ class LoginController extends Controller
 
         }else{
 
-                return '/';
+                return '/index';
         }
     }
 

@@ -81,7 +81,7 @@
                   <td>{{$article->id}}</td>
                   <td><img src="{!! asset('/uploads/articlepics/'. $article->image) !!}" alt="{{ $article->image }}"  width="100px;" height="100px;"></td>
                   <td>{{$article->title}}</td>
-                  <td>{{$article->body}}</td>
+                  <td>{{str_limit(strip_tags($article->body), 200)}}</td>
                   <td>{{$article->created_at->format('Y-m-d')}}</td>
                   <td>
                     <a href="{{ route('admin.articles.edit', $article->id) }}" class="btn btn-success btn-sm">EDIT</a>

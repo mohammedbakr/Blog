@@ -84,14 +84,14 @@
       <aside id="colorlib-aside" role="complementary" class="js-fullheight">
         <nav id="colorlib-main-menu" role="navigation">
           <ul>
-            <li class=" {{ '/' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('index')}}">Home</a></li>
+            <li class=" {{ 'index' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('pages.index.index')}}">Home</a></li>
             <li class=" {{ 'about' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('about')}}">About</a></li>
             <li class=" {{ 'contact' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
           </ul>
         </nav>
 
         <div class="colorlib-footer">
-          <h1 id="colorlib-logo" class="mb-4"><a href="{{route('index')}}" style="background-image: url(front/images/image_1.jpg);">Andrea <span>Moore</span></a></h1>
+          <h1 id="colorlib-logo" class="mb-4"><a href="{{route('pages.index.index')}}" style="background-image: url(front/images/image_1.jpg);">Andrea <span>Moore</span></a></h1>
           <div class="mb-4">
             <h3>Subscribe for newsletter</h3>
             <form action="#" class="colorlib-subscribe-form">

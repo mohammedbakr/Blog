@@ -12,22 +12,21 @@
 					@foreach ($articles as $article)
 					<div class="col-md-12">
 						<div class="blog-entry ftco-animate d-md-flex">
-							<a href=""><img class="img img-2" src="{!! asset('/uploads/articlepics/'. $article->image) !!}" alt="{{ $article->image }}"></a>
+							<a href="{{route('pages.index.show', $article->id)}}"><img class="img img-2" src="{!! asset('/uploads/articlepics/'. $article->image) !!}" alt="{{ $article->image }}"></a>
 							<div class="text text-2 pl-md-4">
-								<h3 class="mb-2"><a href="">{{$article->title}}</a></h3>
+								<h3 class="mb-2"><a href="{{route('pages.index.show', $article->id)}}">{{$article->title}}</a></h3>
 								<div class="meta-wrap">
 									<p class="meta">
-										
 										<span><i class="icon-calendar mr-2"></i>{{$article->created_at->format('Y-m-d')}}</span>
 										@foreach ($article->tags as $tag)
-										<span><a href="{{route('tags.show', $tag->id)}}"><i class="icon-folder-o mr-2"></i>{{$tag->tag}}</a></span>
+										<span><a href="{{route('pages.tags.show', $tag->id)}}"><i class="icon-folder-o mr-2"></i>{{$tag->tag}}</a></span>
 										@endforeach
 										<span><i class="icon-user mr-2"></i>{{$article->user->name}}</span>
 										<span><i class="icon-comment2 mr-2"></i>{{$article->comments->count()}} Comment</span>
 						  			</p>
 					  			</div>
 					  			<p class="mb-4">{{str_limit(strip_tags($article->body), 200)}}</p>
-					  			<p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+					  			<p><a href="{{route('pages.index.show', $article->id)}}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
 							</div>
 						</div>
 					</div>
@@ -62,7 +61,7 @@
 			<h3 class="sidebar-heading">Categories</h3>
 		  <ul class="categories">
 			  @foreach ($tags as $tag)
-			  <li><a href="{{route('tags.show', $tag->id)}}">{{$tag->tag}}<span>{{$tag->articles->count()}}</span></a></li>
+			  <li><a href="{{route('pages.tags.show', $tag->id)}}">{{$tag->tag}}<span>{{$tag->articles->count()}}</span></a></li>
 			  @endforeach
 		  </ul>
 		</div>
