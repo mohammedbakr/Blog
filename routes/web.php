@@ -14,24 +14,22 @@
 
 Auth::routes();
 
-// AdminLTE Dashboard
+// Check if Auth hasRole Admin, Auther or User
 Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware(['auth', 'admin'])->name('dashboard');
 
+// AdminLTE Dashboard
 Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function(){
     Route::resource('/users', 'UserController')->except(['create', 'show', 'store']);
     Route::resource('/articles', 'ArticleController')->except(['create', 'show']);
 });
 
 // User Pages
-// Route::get('/', 'HomeController@index')->name('index');
-// Route::resource('/', 'Pages\ArticlesController')->only(['index', 'show']);
-// Route::resource('/tags', 'Pages\TagsController')->only(['show']);
-
 Route::namespace('Pages')->name('pages.')->group(function(){
     Route::resource('/index', 'ArticlesController')->except(['create', 'store', 'edit', 'update', 'destroy']);
     Route::resource('/tags', 'TagsController')->only(['show']);
+    Route::post('/comments/{id}', 'CommentsController@store')->name('comments.store');
 });
 
 
