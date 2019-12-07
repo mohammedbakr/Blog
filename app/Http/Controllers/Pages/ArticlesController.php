@@ -17,7 +17,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        $articles = Article::all();
+        $articles = Article::orderby('created_at', 'DESC')->paginate(10);
 
         return view('pages.index', compact('articles', 'tags'));
     }

@@ -33,6 +33,9 @@ class CommentsController extends Controller
 
         $comment->save($request->all());
 
-        return redirect()->route('pages.index.show', $article->id);
+        // return redirect()->route('pages.index.show', $article->id);
+        // $comment["userName"] = $comment->user->name;
+        $comment->user->name;
+        return response()->json($comment);
         }
 }

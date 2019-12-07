@@ -31,7 +31,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{route('pages.index.index')}}">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -122,8 +122,9 @@
     <script src="{{asset('front/js/aos.js')}}"></script>
     <script src="{{asset('front/js/jquery.animateNumber.min.js')}}"></script>
     <script src="{{asset('front/js/scrollax.min.js')}}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="{{asset('front/js/google-map.js')}}"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> --}}
+    {{-- <script src="{{asset('front/js/google-map.js')}}"></script> --}}
     <script src="{{asset('front/js/main.js')}}"></script>
+    @yield('script')
   </body>
 </html>
