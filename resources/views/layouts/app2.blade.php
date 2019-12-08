@@ -91,7 +91,7 @@
         </nav>
 
         <div class="colorlib-footer">
-          <h1 id="colorlib-logo" class="mb-4"><a href="{{route('pages.index.index')}}" style="background-image: url(front/images/image_1.jpg);">Andrea <span>Moore</span></a></h1>
+          <h1 id="colorlib-logo" class="mb-4"><a href="{{route('pages.index.index')}}" style="background-image: url(../front/images/image_1.jpg);">Andrea <span>Moore</span></a></h1>
           <div class="mb-4">
             <h3>Subscribe for newsletter</h3>
             <form action="#" class="colorlib-subscribe-form">

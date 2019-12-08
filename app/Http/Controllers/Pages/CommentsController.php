@@ -33,9 +33,11 @@ class CommentsController extends Controller
 
         $comment->save($request->all());
 
-        // return redirect()->route('pages.index.show', $article->id);
-        // $comment["userName"] = $comment->user->name;
-        $comment->user->name;
+        $comment->user;
+
+        $count = count(Comment::where('article_id',$id)->get());
+        $comment->count = $count;
+        
         return response()->json($comment);
         }
 }

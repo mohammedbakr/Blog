@@ -20,7 +20,7 @@
 										<span><a href="{{route('pages.tags.show', $tag->id)}}"><i class="icon-folder-o mr-2"></i>{{$tag->tag}}</a></span>
 										@endforeach
 										<span><i class="icon-user mr-2"></i>{{$article->user->name}}</span>
-										<span><i class="icon-comment2 mr-2"></i>{{$article->comments->count()}} Comment</span>
+										<span class="count"><i class="icon-comment2 mr-2"></i>{{$article->comments->count()}} Comment</span>
 						  			</p>
 					  			</div>
 								  <p class="mb-4">{{$article->body}}</p>
@@ -29,12 +29,12 @@
 						<hr>					
 					</div>
 					<div class="pt-5 mt-5">
-						<h3 class="mb-5 font-weight-bold">{{$article->comments->count()}} Comments</h3>
+						<h3 class="mb-5 font-weight-bold count">{{$article->comments->count()}} Comments</h3>
 						<ul class="comment-list">
 							@foreach ($article->comments as $comment)
 							<li class="comment">
 								<div class="vcard bio">
-									<img src="{!! asset('/uploads/profilepics/'. $comment->image) !!}" alt="{{ $comment->image  }}"class="img-circle">
+									<img src="{!! asset('/uploads/profilepics/'. $comment->user->image) !!}" alt="{{ $comment->user->image  }}" class="img-circle">
 								</div>	
 								<div class="comment-body">
 									<h3>{{$comment->user->name}}</h3>
@@ -88,16 +88,21 @@
 					alert("comment added successfully");
 					$('.comment-list').append(
 						`<li class="comment">
+							<div class="vcard bio">
+								<img src="{{asset('uploads/profilepics')}}/${data.user.image}" alt="${data.user.image}" class="img-circle">
+							</div>
 							<div class="comment-body">
 								<h3>${data.user.name}</h3>
 								<div class="meta">${data.created_at}</div>
 								<p id="display">${data.body}</p>
 							</div>
 						</li>`
-						)	
+					);
+					$(".count").html(`${data.count} Comments`);
 				},
 				error: function(xhr, status, error){
 					console.log(error);
+					alert("something went wrong");
 				}
 			});
 		});
