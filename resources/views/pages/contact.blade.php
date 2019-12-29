@@ -7,6 +7,7 @@
   <div class="container">
 	<div class="row d-flex mb-5 contact-info">
 	  <div class="col-md-12 mb-4">
+		  @include('include.messages')
 		<h2 class="h3">Contact Information</h2>
 	  </div>
 	  <div class="w-100"></div>
@@ -33,18 +34,19 @@
 	</div>
 	<div class="row block-9">
 	  <div class="col-lg-6 d-flex">
-		<form action="#" class="bg-light p-5 contact-form">
+		<form action="{{ route('pages.contact.sendmail') }}" method="POST" class="bg-light p-5 contact-form">
+			@csrf
 		  <div class="form-group">
-			<input type="text" class="form-control" placeholder="Your Name">
+			<input type="text" name="name" class="form-control" placeholder="Your Name">
 		  </div>
 		  <div class="form-group">
-			<input type="text" class="form-control" placeholder="Your Email">
+			<input type="text" name="email" class="form-control" placeholder="Your Email">
 		  </div>
 		  <div class="form-group">
-			<input type="text" class="form-control" placeholder="Subject">
+			<input type="text" name="subject" class="form-control" placeholder="Subject">
 		  </div>
 		  <div class="form-group">
-			<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+			<textarea name="body" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
 		  </div>
 		  <div class="form-group">
 			<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
@@ -53,8 +55,8 @@
 	  
 	  </div>
 
-	  <div class="col-lg-6 d-flex">
-		  <div id="map" class="bg-light"></div>
+	  {{-- <div class="col-lg-6 d-flex">
+		  <div id="map" class="bg-light"></div> --}}
 	  </div>
 	</div>
   </div>

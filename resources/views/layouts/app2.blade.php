@@ -86,7 +86,7 @@
           <ul>
             <li class=" {{ 'index' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('pages.index.index')}}">Home</a></li>
             <li class=" {{ 'about' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('about')}}">About</a></li>
-            <li class=" {{ 'contact' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
+            <li class=" {{ 'contact' == request()->path() ? 'colorlib-active' : '' }}"><a href="{{route('pages.contact')}}">Contact</a></li>
           </ul>
         </nav>
 

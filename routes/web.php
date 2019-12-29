@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,12 +33,10 @@ Route::namespace('Pages')->name('pages.')->group(function(){
     Route::resource('/index', 'ArticlesController')->except(['create', 'store', 'edit', 'update', 'destroy']);
     Route::resource('/tags', 'TagsController')->only(['show']);
     Route::post('/comments/{id}', 'CommentsController@store')->name('comments.store');
+    Route::get('/contact', 'ArticlesController@indexContact')->name('contact');
+    Route::post('/contact/sendmail', 'ArticlesController@sendmail')->name('contact.sendmail');
 });
 
-
-Route::get('/contact', function(){
-    return view('pages.contact');
-})->name('contact');
 Route::get('/about', function(){
     return view('pages.about');
 })->name('about');
