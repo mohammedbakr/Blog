@@ -30,6 +30,7 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'admin'])->name(
 
 // User Pages
 Route::namespace('Pages')->name('pages.')->group(function(){
+    Route::redirect('/', '/index');
     Route::resource('/index', 'ArticlesController')->except(['create', 'store', 'edit', 'update', 'destroy']);
     Route::resource('/tags', 'TagsController')->only(['show']);
     Route::post('/comments/{id}', 'CommentsController@store')->name('comments.store');
